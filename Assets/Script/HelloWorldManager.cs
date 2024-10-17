@@ -12,6 +12,7 @@ namespace HelloWorld
         Button clientButton;
         Button serverButton;
         Button moveButton;
+        Button shootButton;
         Label statusLabel;
 
         void OnEnable()
@@ -23,6 +24,7 @@ namespace HelloWorld
             clientButton = CreateButton("ClientButton", "Client");
             serverButton = CreateButton("ServerButton", "Server");
             moveButton = CreateButton("MoveButton", "Move");
+            shootButton = CreateButton("ShootButton", "Shoot");
             statusLabel = CreateLabel("StatusLabel", "Not Connected");
 
             rootVisualElement.Clear();
@@ -30,12 +32,14 @@ namespace HelloWorld
             rootVisualElement.Add(clientButton);
             rootVisualElement.Add(serverButton);
             rootVisualElement.Add(moveButton);
+            rootVisualElement.Add(shootButton);
             rootVisualElement.Add(statusLabel);
 
             hostButton.clicked += OnHostButtonClicked;
             clientButton.clicked += OnClientButtonClicked;
             serverButton.clicked += OnServerButtonClicked;
             moveButton.clicked += SubmitNewPosition;
+            shootButton.clicked += SubmitNewPosition;
         }
 
         void Update()
